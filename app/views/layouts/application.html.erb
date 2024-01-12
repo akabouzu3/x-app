@@ -1,16 +1,30 @@
+
 <!DOCTYPE html>
 <html>
   <head>
-    <title>App</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>kazuo_twitter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application","data-turbo-track": "reload"%> 
     <%= javascript_importmap_tags %>
   </head>
-
   <body>
-    <%= yield %>
+    <div id="layers">
+      <%# flash.each do |message_type, message|%>
+        <%# <div class="alert alert-<%= message_type "><%= message </div> %>
+      <%# end %>
+    </div>
+    <div id="root">
+      <%= render("layouts/header") %>
+      <main class="flex-column">
+        <div id="main__container" class="flex"> 
+          <%= yield %>
+        </div>
+      </main>
+      <%# <%= debug(params) if Rails.env.development?  %>
+    </div>
   </body>
 </html>

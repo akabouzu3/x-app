@@ -1,0 +1,336 @@
+
+
+
+<header id="header" class="flex-column">
+  <div id="header__child" class="flex-column">
+    <div id="header__grandchild" class="flex-column">
+      <div id="menu" class="flex-column">
+        <div id="menu__top" class="flex-column">
+
+          <div id="header__icon" class="flex-column">
+            <%= link_to(root_path, class:"icon__link flex-column") do %>
+              <div class="icon__item--image flex">
+                <%= embedded_svg("twitter-svgrepo-com.svg") %>
+              </div>
+            <% end %>
+          </div>
+          <div id="header__mainmenu" class="flex-column">
+            <nav class="flex-column">
+              <%= link_to(root_path, class:"mainmenu__link flex-column") do %>
+                <div class="mainmenu__item flex">
+                  <div class="mainmenu__item--icon flex">
+                    <%= embedded_svg("house-svgrepo-com.svg")%>
+                  </div>
+                  <div class="mainmenu__item--text">
+                    <span class="mainmenu-home">ホーム</span>
+                  </div>
+                </div>
+              <% end %>
+              <%# if logged_in? %>
+              <% if false %>
+                <%= link_to( users_path, class:"mainmenu__link flex-column", data:{turbo:true}) do %>
+                  <div class="mainmenu__item flex">
+                    <div class="mainmenu__item--icon flex">
+                      <%= embedded_svg("user-add-svgrepo-com.svg") %>
+                    </div>
+                    <div class="mainmenu__item--text">
+                      <span>全ユーザー</span>
+                    </div>
+                  </div>
+                <% end %>
+                <%= link_to(user_path(current_user.username), class:"mainmenu__link flex-column") do %>
+                  <div class="mainmenu__item flex">
+                    <div class="mainmenu__item--icon flex">
+                      <%= embedded_svg("user-svgrepo-com.svg") %>
+                    </div>
+                    <div class="mainmenu__item--text">
+                      <span>プロフィール</span>
+                    </div>
+                  </div>
+                <% end %>
+                <%= link_to(edit_user_path(current_user.username), class:"mainmenu__link flex-column") do %>
+                  <div class="mainmenu__item flex">
+                    <div class="mainmenu__item--icon flex">
+                      <%= embedded_svg("edit-profile-svgrepo-com.svg") %>
+                    </div>
+                    <div class="mainmenu__item--text">
+                      <span>プロフィール編集</span>
+                    </div>
+                  </div>
+                <% end %>
+                <%= link_to(edit_password_user_path(current_user.username), class:"mainmenu__link flex-column") do %>
+                  <div class="mainmenu__item flex">
+                    <div class="mainmenu__item--icon flex">
+                      <%= embedded_svg("password-lock-svgrepo-com.svg") %>
+                    </div>
+                    <div class="mainmenu__item--text">
+                      <span>パスワード変更</span>
+                    </div>
+                  </div>
+                <% end %>
+                <%= link_to(edit_username_user_path(current_user.username), class:"mainmenu__link flex-column") do %>
+                  <div class="mainmenu__item flex">
+                    <div class="mainmenu__item--icon flex">
+                      <%= embedded_svg("user-card-id-svgrepo-com.svg") %>
+                    </div>
+                    <div class="mainmenu__item--text">
+                      <span>ユーザー名変更</span>
+                    </div>
+                  </div>
+                <% end %>
+                <%= link_to(logout_path, class:"mainmenu__link flex-column", data: {"turbo-method": :delete}) do %>
+                  <div class="mainmenu__item flex">
+                    <div class="mainmenu__item--icon flex">
+                      <%= embedded_svg("logout-svgrepo-com.svg") %>
+                    </div>
+                    <div class="mainmenu__item--text">
+                      <span>ログアウト</span>
+                    </div>
+                  </div>
+                <% end %>
+                <%= link_to("#", class:"mainmenu__link flex-column") do %>
+                  <div class="mainmenu__item flex">
+                    <div class="mainmenu__item--icon flex">
+                      <%= embedded_svg("more-horizontal-svgrepo-com.svg") %>
+                    </div>
+                    <div class="mainmenu__item--text">
+                      <span>まだ使えない</span>
+                    </div>
+                  </div>
+                <% end %>
+              <% else %>
+                <%= link_to(signup_path, class:"mainmenu__link flex-column") do %>
+                  <div class="mainmenu__item flex">
+                    <div class="mainmenu__item--icon flex">
+                      <%= embedded_svg("more-horizontal-svgrepo-com.svg") %>
+                    </div>
+                    <div class="mainmenu__item--text">
+                      <span>新規登録</span>
+                    </div>
+                  </div>
+                <% end %>
+                <%= link_to('#', class:"mainmenu__link flex-column") do %>
+                  <div class="mainmenu__item flex">
+                    <div class="mainmenu__item--icon flex">
+                      <%= embedded_svg("more-horizontal-svgrepo-com.svg") %>
+                    </div>
+                    <div class="mainmenu__item--text">
+                      <span>ログイン</span>
+                    </div>
+                  </div>
+                <% end %>
+              <% end %>
+            </nav>
+          </div>
+          <%# if logged_in? %>
+          <% if false %>
+            <div id="header__tweetButton" class="flex-column">
+              <%= link_to("#", class:"tweetButton__link flex-column") do %>
+                <div class="tweetButton__item flex">
+                  <span>まだ使えない</span>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+        
+        <%# if logged_in? %>
+        <%if false%>
+          <div id="menu__bottom" class="flex-column">
+            <div id="header__account" class="flex-column">
+              <%= link_to(user_path(current_user.username) , class:"account__link flex-column") do %>
+                <div class="account__item flex">
+                  <div class="account__info flex">
+                    <div class="account__info--image flex-column">
+                      <% if current_user.userIcon.attached? %>
+                        <%= image_tag(current_user.userIcon)%>
+                      <% else %>
+                        <%= image_tag("user-svgrepo-com.svg") %>
+                      <% end %>
+                    </div>
+                    <div class="account__userInfo flex-column">
+                      <span class="account__userInfo--name"><%= current_user.name%></span>
+                      <span class="account__userInfo--username">@<%= current_user.username %></span>
+                    </div>
+                  </div>
+                  <div class="account__more flex-column">
+                    <%= embedded_svg("more-horizontal-svgrepo-com.svg") %>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+<%
+=begin %>
+
+<header id="header" class="flex-column">
+  <div id="header__child" class="flex-column">
+    <div id="header__grandchild" class="flex-column">
+      <div id="menu" class="flex-column">
+        <div id="menu__top" class="flex-column">
+
+          <div id="header__icon" class="flex-column">
+            <%= link_to(root_path, class:"icon__link flex-column") do %>
+              <div class="icon__item--image flex">
+                <%= embedded_svg("twitter-svgrepo-com.svg") %>
+              </div>
+            <% end %>
+          </div>
+          <div id="header__mainmenu" class="flex-column">
+            <nav class="flex-column">
+              <%= link_to(root_path, class:"mainmenu__link flex-column") do %>
+                <div class="mainmenu__item flex">
+                  <div class="mainmenu__item--icon flex">
+                    <%= embedded_svg("house-svgrepo-com.svg")%>
+                  </div>
+                  <div class="mainmenu__item--text">
+                    <span class="mainmenu-home">ホーム</span>
+                  </div>
+                </div>
+              <% end %>
+              <% if logged_in? %>
+                <%= link_to( users_path, class:"mainmenu__link flex-column", data:{turbo:true}) do %>
+                  <div class="mainmenu__item flex">
+                    <div class="mainmenu__item--icon flex">
+                      <%= embedded_svg("user-add-svgrepo-com.svg") %>
+                    </div>
+                    <div class="mainmenu__item--text">
+                      <span>全ユーザー</span>
+                    </div>
+                  </div>
+                <% end %>
+                <%= link_to(user_path(current_user.username), class:"mainmenu__link flex-column") do %>
+                  <div class="mainmenu__item flex">
+                    <div class="mainmenu__item--icon flex">
+                      <%= embedded_svg("user-svgrepo-com.svg") %>
+                    </div>
+                    <div class="mainmenu__item--text">
+                      <span>プロフィール</span>
+                    </div>
+                  </div>
+                <% end %>
+                <%= link_to(edit_user_path(current_user.username), class:"mainmenu__link flex-column") do %>
+                  <div class="mainmenu__item flex">
+                    <div class="mainmenu__item--icon flex">
+                      <%= embedded_svg("edit-profile-svgrepo-com.svg") %>
+                    </div>
+                    <div class="mainmenu__item--text">
+                      <span>プロフィール編集</span>
+                    </div>
+                  </div>
+                <% end %>
+                <%= link_to(edit_password_user_path(current_user.username), class:"mainmenu__link flex-column") do %>
+                  <div class="mainmenu__item flex">
+                    <div class="mainmenu__item--icon flex">
+                      <%= embedded_svg("password-lock-svgrepo-com.svg") %>
+                    </div>
+                    <div class="mainmenu__item--text">
+                      <span>パスワード変更</span>
+                    </div>
+                  </div>
+                <% end %>
+                <%= link_to(edit_username_user_path(current_user.username), class:"mainmenu__link flex-column") do %>
+                  <div class="mainmenu__item flex">
+                    <div class="mainmenu__item--icon flex">
+                      <%= embedded_svg("user-card-id-svgrepo-com.svg") %>
+                    </div>
+                    <div class="mainmenu__item--text">
+                      <span>ユーザー名変更</span>
+                    </div>
+                  </div>
+                <% end %>
+                <%= link_to(logout_path, class:"mainmenu__link flex-column", data: {"turbo-method": :delete}) do %>
+                  <div class="mainmenu__item flex">
+                    <div class="mainmenu__item--icon flex">
+                      <%= embedded_svg("logout-svgrepo-com.svg") %>
+                    </div>
+                    <div class="mainmenu__item--text">
+                      <span>ログアウト</span>
+                    </div>
+                  </div>
+                <% end %>
+                <%= link_to("#", class:"mainmenu__link flex-column") do %>
+                  <div class="mainmenu__item flex">
+                    <div class="mainmenu__item--icon flex">
+                      <%= embedded_svg("more-horizontal-svgrepo-com.svg") %>
+                    </div>
+                    <div class="mainmenu__item--text">
+                      <span>まだ使えない</span>
+                    </div>
+                  </div>
+                <% end %>
+              <% else %>
+                <%= link_to(signup_path, class:"mainmenu__link flex-column") do %>
+                  <div class="mainmenu__item flex">
+                    <div class="mainmenu__item--icon flex">
+                      <%= embedded_svg("more-horizontal-svgrepo-com.svg") %>
+                    </div>
+                    <div class="mainmenu__item--text">
+                      <span>新規登録</span>
+                    </div>
+                  </div>
+                <% end %>
+                <%= link_to(login_path, class:"mainmenu__link flex-column") do %>
+                  <div class="mainmenu__item flex">
+                    <div class="mainmenu__item--icon flex">
+                      <%= embedded_svg("more-horizontal-svgrepo-com.svg") %>
+                    </div>
+                    <div class="mainmenu__item--text">
+                      <span>ログイン</span>
+                    </div>
+                  </div>
+                <% end %>
+              <% end %>
+            </nav>
+          </div>
+          <% if logged_in? %>
+            <div id="header__tweetButton" class="flex-column">
+              <%= link_to("#", class:"tweetButton__link flex-column") do %>
+                <div class="tweetButton__item flex">
+                  <span>まだ使えない</span>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+        
+        <% if logged_in? %>
+          <div id="menu__bottom" class="flex-column">
+            <div id="header__account" class="flex-column">
+              <%= link_to(user_path(current_user.username) , class:"account__link flex-column") do %>
+                <div class="account__item flex">
+                  <div class="account__info flex">
+                    <div class="account__info--image flex-column">
+                      <% if current_user.userIcon.attached? %>
+                        <%= image_tag(current_user.userIcon)%>
+                      <% else %>
+                        <%= image_tag("user-svgrepo-com.svg") %>
+                      <% end %>
+                    </div>
+                    <div class="account__userInfo flex-column">
+                      <span class="account__userInfo--name"><%= current_user.name%></span>
+                      <span class="account__userInfo--username">@<%= current_user.username %></span>
+                    </div>
+                  </div>
+                  <div class="account__more flex-column">
+                    <%= embedded_svg("more-horizontal-svgrepo-com.svg") %>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</header>
+
+<%
+=end %>
